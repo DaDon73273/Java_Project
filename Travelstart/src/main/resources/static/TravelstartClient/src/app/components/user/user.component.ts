@@ -7,7 +7,8 @@ import {Router} from '@angular/Router';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
- 
+ users:User[];
+
   constructor() { }
 
   ngOnInit() {
