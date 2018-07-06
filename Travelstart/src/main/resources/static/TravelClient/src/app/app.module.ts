@@ -1,24 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {HttpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { UserComponent } from './components/user/user.component';
-import { AddUserComponent } from './components/add-user/add-user.component';
+import { ListusersComponent } from './components/listusers/listusers.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
 import { UserService } from './shared-service/user.service';
 
+
 const appRoute:Routes=[
-  {path:'',component:UserComponent},
-  {path:'add',component:AddUserComponent}
+ {path:'',component:ListusersComponent},
+ {path:'op',component:UserFormComponent}
 ]
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    AddUserComponent
+    ListusersComponent,
+    UserFormComponent,
+   
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(appRoute)
   ],
   providers: [UserService],
