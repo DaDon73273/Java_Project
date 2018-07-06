@@ -9,13 +9,14 @@ import { error } from '../../../../node_modules/protractor';
   styleUrls: ['./view-users.component.css']
 })
 export class ViewUsersComponent implements OnInit {
-  private user:User[];
+  private users:User[];
   constructor(private _userService:UserService) { }
 
   ngOnInit() {
     this._userService.getUsers()
     .subscribe(data=>{
       console.log(data);
+      this.users=data;
     },(error)=>{
       console.log(error);
     })
