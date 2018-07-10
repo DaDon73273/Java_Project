@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-
 import { DisplayUsersComponent } from './components/display-users/display-users.component';
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
 
