@@ -5,13 +5,15 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ViewUsersComponent } from './components/view-users/view-users.component';
 import { UserComponent } from './sign-up/user/user.component';
+import { DisplayUsersComponent } from './components/display-users/display-users.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewUsersComponent,
-    UserComponent
+    UserComponent,
+    DisplayUsersComponent
   ],
   imports: [
     BrowserModule
