@@ -6,7 +6,14 @@ import { AppComponent } from './app.component';
 import { DisplayUsersComponent } from './components/display-users/display-users.component';
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
 
+import {RouterModule,Routes} from '@angular/router';
+import {HttpModule} from '@angular/http';
+import { UserService } from './shared-service/user.service';
 
+const appRoute:Routes=[
+  {path:'',component:DisplayUsersComponent},
+  {path:'sign-up',component:SignUpComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,9 +21,11 @@ import { SignUpComponent } from './Components/sign-up/sign-up.component';
     SignUpComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    RouterModule.forRoot(appRoute)
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
