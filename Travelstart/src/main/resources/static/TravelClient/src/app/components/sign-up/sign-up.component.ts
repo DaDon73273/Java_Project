@@ -3,7 +3,7 @@ import {NgForm} from '@angular/forms';
 
 import {Router} from '@angular/router';
 import { UserService } from '../../shared-service/user.service';
-import { Title } from '../../../../node_modules/@angular/platform-browser';
+import { User } from '../../model-classes/user';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,7 +11,7 @@ import { Title } from '../../../../node_modules/@angular/platform-browser';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-   
+   private objUser:User;
   constructor(private _userService:UserService,private _router:Router) { }
 
   ngOnInit() {
