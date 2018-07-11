@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ const appRoute:Routes=[
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoute)
   ],

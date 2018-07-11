@@ -1,3 +1,31 @@
-<p>
-  display-users works!
-</p>
+<div class="container">
+  
+  <table class="table table-striped">
+
+    <thead>
+      <th>Id</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Title</th>
+      <th>Type</th>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.userId}}</td>
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.title}}</td>
+        <td>{{user.type}}</td>
+        <td><button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+          <button class="btn btn-primary" (click)="updateUser(user)">Edit</button></td>
+      </tr>
+    </tbody>
+   
+  </table>
+  <button class="btn btn-primary" (click)="newUser()">Sign-up</button>
+</div>

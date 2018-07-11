@@ -11,7 +11,8 @@ import { User } from '../model-classes/user';
 export class UserService {
   private baseUrl: String = 'http://localhost:8080/api';
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private options = new RequestOptions({ headers: this.headers })
+  private options = new RequestOptions({ headers: this.headers });
+  private user:User;
   constructor(private _http: Http) { }
 
 
@@ -21,26 +22,35 @@ export class UserService {
   }
 
 
-  getUser(id: Number) {
-    return this._http.get(this.baseUrl + "/user/" + id, this.options).map((response: Response) => response.json())
+  getUser(userId: Number) {
+    return this._http.get(this.baseUrl + "/user/" + userId, this.options).map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
 
-  deleteUser(id: Number) {
-    return this._http.delete(this.baseUrl + "/user/" + id, this.options).map((response: Response) => response.json())
+  deleteUser(userId: Number) {
+    return this._http.delete(this.baseUrl + "/user/" + userId, this.options).map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
 
-  createUser(regUser:User) {
-    return this._http.post(this.baseUrl + "/user",JSON.stringify(User), this.options).map((response: Response) => response.json())
+  createUser(user:User) {
+    return this._http.post(this.baseUrl + "/user",JSON.stringify(user), this.options).map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
 
-  updateUser(updateUser:User) {
-    return this._http.put(this.baseUrl + "/user",JSON.stringify(User), this.options).map((response: Response) => response.json())
+  updateUser(user:User) {
+    return this._http.put(this.baseUrl + "/user",JSON.stringify(user), this.options).map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
   errorHandler(error: Response) {
     return Observable.throw(error || "SERVER ERROR");
+  }
+
+
+  setter(user:User){
+    this.user=user;
+  }
+
+  getter(){
+    return this.user;
   }
 }

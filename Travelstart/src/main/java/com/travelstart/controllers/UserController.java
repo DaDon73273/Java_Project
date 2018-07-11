@@ -20,6 +20,7 @@ import com.travelstart.repository.UserRepository;
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
+
 public class UserController {
 
 	@Autowired
@@ -30,14 +31,14 @@ public class UserController {
 		return userRep.findAll();
 	}
 	
-	@GetMapping("/user/{id}")
-	public Optional<User> getUser(@PathVariable Long id) {
-		return userRep.findById(id);
+	@GetMapping("/user/{userId}")
+	public Optional<User> getUser(@PathVariable Long userId) {
+		return userRep.findById(userId);
 	}
 	
-	@DeleteMapping("/user/{id}")
-	public boolean deleteUser(@PathVariable Long id) {
-		userRep.deleteById(id);
+	@DeleteMapping("/user/{userId}")
+	public boolean deleteUser(@PathVariable Long userId) {
+		userRep.deleteById(userId);
 		return true;
 	}
 	
@@ -48,7 +49,7 @@ public class UserController {
 	}
 	
 	@PutMapping("/user/{id}")
-	public User updateUser(@RequestBody User upUser,@PathVariable Long id) {
+	public User updateUser(@RequestBody User upUser,@PathVariable Long userId) {
 		return userRep.save(upUser);
 		
 	}
