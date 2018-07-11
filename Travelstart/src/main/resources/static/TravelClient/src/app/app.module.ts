@@ -11,6 +11,7 @@ import {RouterModule,Routes} from '@angular/router';
 import {HttpModule} from '@angular/http';
 import { UserService } from './shared-service/user.service';
 import { TestComponent } from './components/test/test.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const appRoute:Routes=[
   {path:'test',component:TestComponent},
@@ -22,7 +23,8 @@ const appRoute:Routes=[
     AppComponent,
     DisplayUsersComponent,
     SignUpComponent,
-    TestComponent
+    TestComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
