@@ -1,8 +1,8 @@
-<form class="col s12 white" #UserRegister="ngForm">
-  <div class="row">
-    <div class="input-field col s6">
-      <input type="text" name="title" #title="ngModel" [(ngModel)]="user.title">
-      <label>Title</label>
-    </div>
+
+<form>
+  <div class="form-group">
+    <label for="title">Title :</label>
+    <input type="text" placeholder="Enter Title" name="title" class="form-control" [(ngModel)]="objUser.title">
   </div>
+
 </form>
