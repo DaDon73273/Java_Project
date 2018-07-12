@@ -1,26 +1,46 @@
 package com.travelstart.entities.user;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class User {
-
+ @JsonIgnore
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="userId")
 	Long userId;
 	
-	String firstname;
-	String lastname;
-	String email;
-	String password;
-	String type;
-	String title;
 	
-	public Long getId() {
+	@Column(name="firstname",nullable=false)
+	String firstname;
+	
+	@Column(name="lastname",nullable=false)
+	String lastname;
+	
+	@Column(name="email",nullable=false,unique=true)
+	String email;
+	
+	@Column(name="password",nullable=false)
+	String password;
+	
+	@Column(name="type",nullable=false)
+	String type;
+	
+	@Column(name="title",nullable=false)
+	TitleOptions title;
+	
+	public Long getUserId() {
 		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 	
 	public String getFirstname() {
@@ -53,17 +73,16 @@ public class User {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getTitle() {
+
+	public TitleOptions getTitle() {
 		return title;
 	}
-	public void setTitle(String title) {
+
+	public void setTitle(TitleOptions title) {
 		this.title = title;
 	}
-	public User() {
-		super();
-	}
-	public User(String firstname, String lastname, String email, String password, String type, String title) {
-		super();
+
+	public User(String firstname, String lastname, String email, String password, String type, TitleOptions title) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
@@ -71,6 +90,13 @@ public class User {
 		this.type = type;
 		this.title = title;
 	}
+
+	public User() {
+	
+	}
+	
+	
+	
 	
 	
 	

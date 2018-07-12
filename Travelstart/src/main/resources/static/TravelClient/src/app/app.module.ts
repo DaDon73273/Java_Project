@@ -1,38 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-
 
 import { AppComponent } from './app.component';
-import { DisplayUsersComponent } from './components/display-users/display-users.component';
-import { SignUpComponent } from './Components/sign-up/sign-up.component';
 
-import {RouterModule,Routes} from '@angular/router';
-import {HttpModule} from '@angular/http';
-import { UserService } from './shared-service/user.service';
-import { TestComponent } from './components/test/test.component';
-import { RegisterComponent } from './components/register/register.component';
-
-const appRoute:Routes=[
-  {path:'test',component:TestComponent},
-  {path:'',component:DisplayUsersComponent},
-  {path:'sign-up',component:SignUpComponent}
-]
 @NgModule({
   declarations: [
-    AppComponent,
-    DisplayUsersComponent,
-    SignUpComponent,
-    TestComponent,
-    RegisterComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot(appRoute)
+    BrowserModule
   ],
-  providers: [UserService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
