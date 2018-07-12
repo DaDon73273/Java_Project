@@ -82,7 +82,8 @@ public class User {
 		this.title = title;
 	}
 
-	public User(String firstname, String lastname, String email, String password, String type, TitleOptions title) {
+	public User(Long userId,String firstname, String lastname, String email, String password, String type, TitleOptions title) {
+		this.userId=userId;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
