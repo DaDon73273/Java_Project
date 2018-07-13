@@ -34,7 +34,7 @@ public class User {
 	
 	 @JsonIgnore
 	@Column(name="title",nullable=false)
-	TitleOptions title;
+	String title;
 	
 	public Long getUserId() {
 		return userId;
@@ -75,15 +75,15 @@ public class User {
 		this.type = type;
 	}
 
-	public TitleOptions getTitle() {
+	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(TitleOptions title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 
-	public User(Long userId,String firstname, String lastname, String email, String password, String type, TitleOptions title) {
+	public User(Long userId,String firstname, String lastname, String email, String password, String type, String title) {
 		this.userId=userId;
 		this.firstname = firstname;
 		this.lastname = lastname;
