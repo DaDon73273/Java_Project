@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import {FormBuilder,FormGroup,Validators, FormControl} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import { UserService } from '../../Shared-services/user.service';
 import { AlertService } from '../../Shared-services/alert.service';
@@ -14,6 +14,8 @@ export class SignUpComponent implements OnInit {
   registerForm:FormGroup;
   loading=false;
   submitted=false;
+  selectedValue:String;
+  titles =['Mr', 'Mrs', 'Miss'];
   constructor(private _formBuilder:FormBuilder,
               private _router:Router,
               private _userService:UserService,
@@ -21,11 +23,11 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm=this._formBuilder.group({
-      title:['',Validators.required],
-      firstname:['',Validators.required],
-      lastname:['',Validators.required],
-      email:['',Validators.required],
-      password:['',[Validators.required,Validators.minLength(6)]]
+      title:new FormControl('',[Validators.required]),
+      firstname:new FormControl('',[Validators.required]),
+      lastname:new FormControl('',[Validators.required]),
+      email:new FormControl('',[Validators.required]),
+      password:new FormControl('',[Validators.required,Validators.minLength(6)])
     });
   }
 

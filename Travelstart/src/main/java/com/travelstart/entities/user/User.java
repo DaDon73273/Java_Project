@@ -10,10 +10,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
- @JsonIgnore
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="userId")
+	@Column(name="userId",nullable=false)
 	Long userId;
 	
 	
@@ -32,6 +32,7 @@ public class User {
 	@Column(name="type",nullable=false)
 	String type;
 	
+	 @JsonIgnore
 	@Column(name="title",nullable=false)
 	TitleOptions title;
 	
