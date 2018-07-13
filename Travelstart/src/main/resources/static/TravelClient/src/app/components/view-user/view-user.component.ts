@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../Shared-services/user.service';
 import { User } from '../../model/user';
 import { first } from '../../../../node_modules/rxjs/operators';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { first } from '../../../../node_modules/rxjs/operators';
 export class ViewUserComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
-  constructor(private _userService: UserService) {
+  constructor(private _userService: UserService,private _router:Router) {
    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
    }
 
@@ -33,5 +34,16 @@ export class ViewUserComponent implements OnInit {
       },(error)=>{
         console.log(error);
       })
+    }
+
+    updateUser(user){
+      this._userService.setter(user);
+      this._router.navigate(['/sign-up']);
+    }
+
+    newUser(){
+      let user=new User();
+      this._userService.setter(user);
+      this._router.navigate(['/sign-up']);
     }
 }

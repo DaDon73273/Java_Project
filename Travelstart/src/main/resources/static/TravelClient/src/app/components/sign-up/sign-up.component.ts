@@ -22,6 +22,7 @@ export class SignUpComponent implements OnInit {
               private _alertService:AlertService) { }
 
   ngOnInit() {
+    this._userService.getter();
     this.registerForm=this._formBuilder.group({
       title:new FormControl('',[Validators.required]),
       firstname:new FormControl('',[Validators.required]),

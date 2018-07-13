@@ -32,7 +32,7 @@ public class User {
 	@Column(name="type",nullable=false)
 	String type;
 	
-	 @JsonIgnore
+
 	@Column(name="title",nullable=false)
 	String title;
 	
